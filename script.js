@@ -1,13 +1,10 @@
 //EJERCICIO 1
 const formatearNombre = (nombre) => {
-
-
-     nombre = nombre.toLowerCase();
+    nombre = nombre.toLowerCase();
     let nuevoNombre = nombre[0].toUpperCase() + nombre.slice(1);
     console.log(nuevoNombre);    
     //return nuevoNombre;
 }
-
 
 formatearNombre("NAO");
 
@@ -22,7 +19,6 @@ const contarLetras  = (texto) =>{
     }
     console.log(contador);
 }
-
 
 contarLetras("lucho callate");
 
@@ -42,7 +38,6 @@ const maximo = (a, b, c) => {
     console.log(numMax);
 }
 
-
 maximo(10,1,6565656);
 
 
@@ -51,6 +46,7 @@ const maximo2 = unArray => {
     const arrayOrdenado = unArray.sort((a, b) => b - a);
     console.log("El número mayor es " + arrayOrdenado[0]);
 }
+
 const array3 = [1, 2, 3];
 maximo2(array3);
 
@@ -71,7 +67,6 @@ const validarPassword= (password) =>{
     else console.log("La contraseña no es valida");
 }
 
-
 validarPassword("aoiwdhioa24234sedhd");
 
 
@@ -83,6 +78,7 @@ const sumarArray = (numeros) =>{
     });
     console.log(suma);
 }
+
 const array5 = [81236, 1, 2, 3];
 sumarArray(array5);
 
@@ -97,6 +93,7 @@ const obtenerPares = (numeros)=>{
     });
     console.log(numerosPares)
 }
+
 const array7 =[1,2,3,4,5,56778];
 obtenerPares(array7);
 
@@ -153,14 +150,9 @@ const usuarios = [
 
 
 const nuevosUsuarios = (usuarios) =>{
-    const nombres = usuarios.map(e =>
-    {
-        return e.nombre
-    }
-    );
+    const nombres = usuarios.map(e => e.nombre);
     console.log(nombres);
 }
-
 
 nuevosUsuarios(usuarios);
 
@@ -170,7 +162,6 @@ const mayoresA18 = (usuarios) =>{
     const numerosMayores18 = usuarios.filter(e => e.edad > 18);
     console.log (numerosMayores18);
 }
-
 
 mayoresA18 (usuarios);
 
@@ -183,8 +174,30 @@ const sumarEdades = (usuarios) =>{
     console.log(suma);
 }
 
-
 sumarEdades (usuarios);
+
+
+//EJERCICIO 14
+const destructuring = ({nombre, precio}) => console.log(`El producto ${nombre}, tiene un precio de ${precio}`);
+
+const producto = {
+nombre:"Notebook",
+precio:1000
+}
+destructuring(...producto);
+
+
+//EJERCICIO 15
+const spread = ({nombre, precio},stock) => {
+    const nuevoProducto = {
+        nombre,
+        precio,
+        stock
+    }
+    console.log(`El producto ${nombre}, que sale $${precio}, tiene un stock de ${stock}`);
+}
+
+spread (...producto, 5);
 
 
 //EJERCICIO 16
@@ -215,17 +228,16 @@ const productosCaros = productos => {
 
 productosCaros(productos);
 
+
 //EJERCICIO 18
 const promedio = numeros => {
-    let suma = numeros.reduce((acc, num) => {
-        return acc + num;
-    }, 0);
-
+    let suma = numeros.reduce((acc, num) => acc + num, 0);
     let promedio = suma / numeros.length;
-    console.log(`la suma da ${suma}, y el promedio es ${promedio}, ya que tiene ${numeros.length} numeros`);
+    console.log(`La suma da ${suma}, y el promedio es ${promedio}, ya que tiene ${numeros.length} numeros`);
 }
 
 promedio([1,2,3,4,5,6,22]);
+
 
 //APIS 1
 const usuarios2 = [
@@ -234,9 +246,7 @@ const usuarios2 = [
 {id:3, nombre:"Pedro", edad:30}
 ]
 
-const obtenerUsuarios = () =>{
-    return usuarios2;
-}
+const obtenerUsuarios = () => usuarios2;
 
 
 //APIS 2
@@ -255,6 +265,7 @@ const obtenerUsuarioPorId = id =>{
         console.log("No se encontró ningún usuario con ese id");
     }
 }
+
 obtenerUsuarioPorId(987); //NO LO ENCUENTRA
 obtenerUsuarioPorId(1); //SI LO ENCUENTRA
 
@@ -264,6 +275,7 @@ const obtenerMayores = () =>{
     const numerosMayores18 = usuarios2.filter(e => e.edad > 18);
     console.log (numerosMayores18);
 }
+
 obtenerMayores ();
 
 
